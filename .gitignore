@@ -1,0 +1,11 @@
+.env
+*.pyc
+mlruns
+notebooks
+
+# private data
+data/local_db/raw
+
+# large data volumes
+data/local_db/ml_ready/running_resampled.parquet
+data/local_db/ml_ready/running.parquet

@@ -1,0 +1,9 @@
+{
+  "jupyter.notebookFileRoot": "${workspaceFolder}",
+  "python.defaultInterpreterPath": "/root/miniconda3/envs/pace-predictor-env/bin/python",
+  "python.terminal.activateEnvironment": true,
+  "python-envs.defaultEnvManager": "ms-python.python:conda",
+  "python-envs.defaultPackageManager": "ms-python.python:conda",
+  "python-envs.pythonProjects": [],
+  "python.REPL.enableREPLSmartSend": false,
+}
