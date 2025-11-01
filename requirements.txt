@@ -1,5 +1,4 @@
 # Data extraction
-python-dotenv==1.1.1
 garminconnect==0.2.28
 fitparse==1.2.0
 
@@ -17,6 +16,7 @@ matplotlib==3.10.3
 plotly==6.2.0
 
 # Other
+python-dotenv==1.1.1
 ipykernel==6.29.5
 tqdm==4.67.1
 pre_commit==4.2.0
