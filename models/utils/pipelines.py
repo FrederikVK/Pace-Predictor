@@ -40,7 +40,7 @@ class NextStepPredictor(BaseEstimator, RegressorMixin):
         train = df.query(f"{self.label_id_col} < @self.label_id").copy()
         train = self.feature_pipeline.fit_transform(train)
 
-        act_ids = set(train["activity_id"]).intersection(
+        act_ids = set(train["activity_id"]).intersection(  # noqa
             df.query("include")["activity_id"]
         )
 
@@ -96,8 +96,7 @@ class Trainer:
 
         tqdm_logger = log_utils.TqdmLogger(config.logger)
         for label_id in tqdm(self.label_ids, file=tqdm_logger):
-            with mlflow.start_run(run_name=f"label_{label_id}") as run:
-
+            with mlflow.start_run(run_name=f"label_{label_id}") as run:  # noqa
                 # pipeline
                 self.pace_predictor_pipeline.init_pipeline(label_id)
                 self.pace_predictor_pipeline.next_step_pred_pipeline.fit(df)
@@ -113,7 +112,7 @@ class Trainer:
                         self.pace_predictor_pipeline.feature_names, model.coef_
                     ):
                         mlflow.log_param(f"coef_{name}", coef)
-                except:
+                except Exception:
                     pass
 
                 # Pace predictions
@@ -155,7 +154,6 @@ class Trainer:
 
                 # If last model
                 if label_id == self.label_ids[-1]:
-
                     # fitted values - in sample
                     df_sub = df.query("include")
                     y_test = df_sub.set_index("timestamp")["avg_speed_km_pr_hour"]

@@ -46,7 +46,6 @@ def time_plot(
     metric: str,
     timespan: str,
 ):
-
     if metric in ["distance_km", "elevationGain", "rTSS"]:
         func = "sum"
     elif metric in ["averageHR", "average_km_pr_hour", "IF", "VI", "normalized_speed"]:

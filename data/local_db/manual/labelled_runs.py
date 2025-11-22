@@ -37,7 +37,7 @@ def get_races():
         19940086810: "Track TT",
         20809115831: "TT: Around Svanesøen, a bit muddy",
     }
-    ids = list(ids_anot.keys())
+    ids = list(ids_anot.keys())  # noqa
     races = runs.query("activity_id in @ids").copy()
     races["pace"] = 60 / races["average_km_pr_hour"]
     races["pace_str"] = races["pace"].apply(converters.pace_to_str)

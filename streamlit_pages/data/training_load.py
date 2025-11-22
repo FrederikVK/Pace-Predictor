@@ -4,11 +4,11 @@ import pandas as pd
 # Third-party Imports
 import plotly.graph_objects as go
 import streamlit as st
-
-from data import config
+from plotly.subplots import make_subplots
 
 # Local Imports
 from utils import computers
+from data import config
 
 
 @st.cache_data
@@ -46,8 +46,6 @@ def get_tss(df):
 df = load_data()
 tss = get_tss(df)
 
-
-from plotly.subplots import make_subplots
 
 fig = make_subplots(
     rows=2,

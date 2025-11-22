@@ -46,7 +46,6 @@ def get_metrics() -> dict[str, int | datetime.date]:
 col1, col2, col3 = st.columns([2, 0.01, 1])  # col2 is just a hack
 
 with col1:
-
     # Initialize session state
     if "pipeline_ran" not in st.session_state:
         st.session_state.pipeline_ran = False
@@ -54,7 +53,6 @@ with col1:
         st.session_state.process = None
 
     if st.button("Run Pipeline"):
-
         # Run pipeline as subprocess
         process = subprocess.Popen(
             ["python", "-u", "-m", "data.main"],  # -u = unbuffered

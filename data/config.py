@@ -1,12 +1,11 @@
 # Load environment variables from .env
 from dotenv import load_dotenv
-
-load_dotenv(override=True)
-
 import os
 
 # Local Imports
 from utils import log_utils
+
+load_dotenv(override=True)
 
 # Logging
 LOG_FILE = "logs/data.log"

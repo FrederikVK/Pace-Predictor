@@ -108,7 +108,11 @@ def extract_activites_from_garmin():
             break
 
         # Filter only new activities
-        new_activities = [a for a in batch if datetime.datetime.strptime(a["startTimeGMT"], config.DATE_FORMAT) > since]  # type: ignore
+        new_activities = [
+            a
+            for a in batch
+            if datetime.datetime.strptime(a["startTimeGMT"], config.DATE_FORMAT) > since
+        ]  # type: ignore
         if not new_activities:
             break  # no more new activities
 
@@ -135,7 +139,7 @@ def extract_activites_from_garmin():
         config.logger.info(
             f"Last fetch timestamp updated to: {act_time.strftime(config.DATE_FORMAT)}"
         )
-    except:
+    except Exception:
         config.logger.warning(
             f"Last fetch timestamp not updated, still: {since.strftime(config.DATE_FORMAT)}",
         )
