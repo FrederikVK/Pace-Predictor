@@ -151,7 +151,7 @@ def pace_plot(model_pred: pd.Series, distance: float, title: str):
     return fig
 
 
-st.title(f"Pace Prediction")
+st.title("Pace Prediction")
 model_name = st.radio("Choose model", config.MODEL_NAMES, index=3)
 model, pipeline = load_model(model_name)
 st.markdown(

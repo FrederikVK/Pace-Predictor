@@ -15,7 +15,6 @@ with st.container():
         st.session_state.process = None
 
     if st.button("Run Pipeline"):
-
         # Run pipeline as subprocess
         st.session_state.process = subprocess.Popen(
             ["python", "-u", "-m", "models.main"],  # -u = unbuffered

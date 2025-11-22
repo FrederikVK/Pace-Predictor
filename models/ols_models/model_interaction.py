@@ -102,7 +102,7 @@ class PacePredictorPipeline:
         self.label_id = label_id
         try:
             return self.pipelines[label_id]
-        except:
+        except Exception:
             feature_pipeline = Pipeline(
                 steps=[
                     ("feature_computer", FeatureComputer()),

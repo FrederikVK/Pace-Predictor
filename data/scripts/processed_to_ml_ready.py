@@ -111,7 +111,6 @@ def prep_activities(activities: pd.DataFrame, ids: list[int]) -> pd.DataFrame:
 
 
 def resample_and_smooth_activites(df: pd.DataFrame):
-
     def clean_data(df: pd.DataFrame) -> pd.DataFrame:
         return (
             df.fillna({"altitude": 0})  # fill out missing altitude
@@ -163,7 +162,8 @@ def tp_rTSS(
     df = (
         df.copy()
         # prep
-        .sort_values(["activity_id", "timestamp"]).set_index("timestamp")
+        .sort_values(["activity_id", "timestamp"])
+        .set_index("timestamp")
         # pace or gap (graded pace)
         .assign(gap_speed=lambda x: x["speed"])  # *x["GAP_factor"])
     )

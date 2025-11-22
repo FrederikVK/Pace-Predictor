@@ -12,7 +12,6 @@ from models import config
 
 
 def load_model(model_name):
-
     # Load the latest version of the registered model from MLflow Model Registry
     pipeline = mlflow.sklearn.load_model(f"models:/{model_name}/latest")  # type: ignore
     coef = pd.read_parquet(f"{config.MODEL_OUTPUT_DIR}{model_name}_coef.parquet")
@@ -44,7 +43,7 @@ def load_model(model_name):
     }
 
 
-st.title(f"Model inspection")
+st.title("Model inspection")
 
 # Side-by-side layout
 col1, col2 = st.columns([1, 5])
@@ -55,7 +54,7 @@ res = load_model(model_name)
 
 with col2:
     st.markdown(
-        f"""
+        """
     **Estimated coefficients**
     """
     )
@@ -81,7 +80,7 @@ with col2:
         equation = "y =  \\\\" + " ".join(terms)
 
         st.markdown(f"$$ {equation} $$")
-    except:
+    except Exception:
         st.markdown("Not a regression model")
 
 st.markdown(

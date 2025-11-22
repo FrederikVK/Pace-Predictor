@@ -22,7 +22,6 @@ def reset_mlflow(path="mlruns"):
 
 
 if __name__ == "__main__":
-
     config.logger.info("***Starting model training (we drop previous models)...***")
     reset_mlflow("mlruns")  # no need for historical models for now
 
