@@ -27,21 +27,23 @@ Project Status: 🚧 In development — working prototype with functioning data 
 - Implement more advanced features in the future (fx route-specific predictions, factoring in features like elevation and terrain)
 ---
 
-## Installation
+## Setup
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/FrederikVK/Pace-Predictor.git
-   cd Pace-Predictor
-   ```
+I work with this project using **GitHub Codespaces**. You can open it directly in Codespaces — the environment will be built automatically using the `.devcontainer/devcontainer.json` file.
 
-2. **Set up the Conda environment:**
-   ```bash
-   bash setup_env.sh
-   ```
-   Requires a conda installation.
+For local Docker usage (optional):
 
-   This will create and activate a new Conda environment named `pace-predictor-env` with all required dependencies installed.
+```bash
+# Clone the repository
+git clone https://github.com/FrederikVK/Pace-Predictor
+cd pace-predictor
+
+# Build the Docker image
+docker build -t pace-predictor .
+
+# Run the container
+docker run -it --rm -v $(pwd):/app pace-predictor
+```
 
 ## Configuration (Optional)
 If you want to extract your own personal running data, you can pass credentials with:
